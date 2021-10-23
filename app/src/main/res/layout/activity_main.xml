@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity" >
+
+    <ToggleButton
+        android:id="@+id/togglebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textOff="@string/disabled"
+        android:textOn="@string/enabled"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editText_hint"
+        android:layout_marginBottom="16dp"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/autocomplete_hint"
+        android:completionThreshold="3"
+        android:layout_marginBottom="16dp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:checkedButton="@id/libertadores">
+
+        <RadioButton
+            android:id="@+id/libertadores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/libertadores" />
+
+        <RadioButton
+            android:id="@+id/brasileirao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/brasileirao"/>
+
+        <RadioButton
+            android:id="@+id/copaDoBrasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copaDoBrasil"/>
+
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView_dropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/initialTextDropDownMenu"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_showPopupMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="2dp"
+        android:text="@string/show_popupmenu"/>
+
+    <Button
+        android:id="@+id/btn_showScreenWithBackgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:text="@string/text_goToScreenWithBackgroundImage" />
+
+    <TextView
+        android:id="@+id/longpressView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:textSize="16dp"
+        android:hint="@string/longpress_text"/>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

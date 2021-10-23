@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BasicComponents</string>
+    <string name="disabled">Desativado</string>
+    <string name="enabled">Ativado</string>
+    <string name="editText_hint">Toque para editar</string>
+    <string name="autocomplete_hint">Digite um time do Brasil</string>
+    <string name="libertadores">Libertadores</string>
+    <string name="brasileirao">Brasileirão</string>
+    <string name="copaDoBrasil">CopaDoBrasil</string>
+    <string name="initialTextDropDownMenu">Selecione um time</string>
+    <string name="show_popupmenu">Mostrar PopupMenu</string>
+    <string name="longpress_text">Pressione e segure</string>
+    <string name="text_goToScreenWithBackgroundImage">Ir para tela com imagem no fundo</string>
+
+    <string-array name="teams">
+        <item>Flamengo</item>
+        <item>Palmeiras</item>
+        <item>Corinthians</item>
+        <item>Santos</item>
+        <item>Fluminense</item>
+    </string-array>
+</resources>
