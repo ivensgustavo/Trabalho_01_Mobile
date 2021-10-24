@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicComponents">
         <activity
+            android:name=".ScreenWithTabs"
+            android:exported="true" />
+        <activity
             android:name=".ScreenWithBackgroundImage"
             android:exported="true" />
         <activity

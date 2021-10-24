@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.MenuRes
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         configurePopUpMenu()
         configureLongPress()
         configureBtnShowSreenWithBackgroundImage()
-
+        configureBtnShowSreenWithTabs()
 
     }
 
@@ -122,5 +123,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    private fun configureBtnShowSreenWithTabs() {
+        val btnShowScreeWithTabs: Button = findViewById(R.id.btn_showScreenWithTabs)
+        btnShowScreeWithTabs.setOnClickListener { view: View ->
+            val screnWithBackgroundImage = Intent(this,  ScreenWithTabs::class.java)
+            startActivity(screnWithBackgroundImage)
+        }
+    }
 }

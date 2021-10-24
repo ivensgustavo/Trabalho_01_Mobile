@@ -19,4 +19,14 @@
         <item>Santos</item>
         <item>Fluminense</item>
     </string-array>
+    <string name="text_showScreenWithTabs">Mostrar tela com tabs</string>
+
+    <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_favorites">Favoritos</string>
+    <string name="text_home">Home</string>
+    <string name="text_laundry">Laundry</string>
 </resources>
