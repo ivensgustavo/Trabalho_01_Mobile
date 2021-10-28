@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             "ActivitiesMultiplasTabs"
         )
 
-        var listView: ListView = findViewById(R.id.listview)
+        val listView: ListView = findViewById(R.id.listview)
         arrayAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item, items)
 
         listView.adapter = arrayAdapter
@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         configureLongPress()
         configureBtnShowSreenWithBackgroundImage()
         configureBtnShowSreenWithTabs()
+        configureBtnShowScreenWithGrid()
 
     }
 
@@ -96,7 +97,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showPopupMenu(view: View, @MenuRes menuLayout: Int) {
-        val popupmenu: PopupMenu = PopupMenu(this, view)
+        val popupmenu = PopupMenu(this, view)
         popupmenu.menuInflater.inflate(menuLayout, popupmenu.menu)
 
         popupmenu.setOnMenuItemClickListener { menuItem ->
@@ -128,6 +129,14 @@ class MainActivity : AppCompatActivity() {
         btnShowScreeWithTabs.setOnClickListener { view: View ->
             val screnWithBackgroundImage = Intent(this,  ScreenWithTabs::class.java)
             startActivity(screnWithBackgroundImage)
+        }
+    }
+
+    private fun configureBtnShowScreenWithGrid() {
+        val btnShowScreenWithGrid: Button = findViewById(R.id.btn_showScreenWithGrid)
+        btnShowScreenWithGrid.setOnClickListener { view: View ->
+            val screenWithGrid = Intent(this, ScreenWithGrid::class.java)
+            startActivity(screenWithGrid)
         }
     }
 }

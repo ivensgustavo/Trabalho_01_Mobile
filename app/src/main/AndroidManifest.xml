@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicComponents">
         <activity
+            android:name=".ScreenWithGrid"
+            android:exported="true" />
+        <activity
             android:name=".ScreenWithTabs"
             android:exported="true" />
         <activity

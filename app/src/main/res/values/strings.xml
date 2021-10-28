@@ -29,4 +29,6 @@
     <string name="text_favorites">Favoritos</string>
     <string name="text_home">Home</string>
     <string name="text_laundry">Laundry</string>
+    <string name="text_show_screen_with_grid">Mostrar tela com grid</string>
+    <string name="logoDoFlamengo">Logo do Flamengo</string>
 </resources>
