@@ -1,6 +1,7 @@
 package dadm.quixada.ufc.basiccomponents
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +12,9 @@ import androidx.annotation.MenuRes
 
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var audio: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -50,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         configureBtnShowSreenWithBackgroundImage()
         configureBtnShowSreenWithTabs()
         configureBtnShowScreenWithGrid()
+        configureBtnsAudio()
 
     }
 
@@ -137,6 +142,20 @@ class MainActivity : AppCompatActivity() {
         btnShowScreenWithGrid.setOnClickListener { view: View ->
             val screenWithGrid = Intent(this, ScreenWithGrid::class.java)
             startActivity(screenWithGrid)
+        }
+    }
+
+    private fun configureBtnsAudio() {
+        audio = MediaPlayer.create(this, R.raw.coracao_cachorro)
+        val btnPlayAudio: Button = findViewById(R.id.btn_playAudio)
+        val btnPauseAudio: Button = findViewById(R.id.btn_pauseAudio)
+
+        btnPlayAudio.setOnClickListener {
+            audio.start()
+        }
+
+        btnPauseAudio.setOnClickListener {
+            audio.pause()
         }
     }
 }

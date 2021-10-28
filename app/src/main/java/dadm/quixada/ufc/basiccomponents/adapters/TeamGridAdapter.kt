@@ -38,7 +38,7 @@ class TeamGridAdapter(var context: Context, var arrayList: ArrayList<Team>) : Re
     }
 
     private fun getToastMessage(teamName: String?): Toast {
-        return Toast.makeText(context, "Time cliado: " + teamName, Toast.LENGTH_SHORT)
+        return Toast.makeText(context, "Time clicado: " + teamName, Toast.LENGTH_SHORT)
     }
 
     class ItemHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
