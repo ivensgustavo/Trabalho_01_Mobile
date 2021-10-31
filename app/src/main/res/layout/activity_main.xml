@@ -109,6 +109,13 @@
         android:layout_marginBottom="2dp"
         android:text="@string/text_show_screen_with_grid" />
 
+    <Button
+        android:id="@+id/btn_showScreenListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="2dp"
+        android:text="@string/text_showScreenWithListView" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,11 +144,4 @@
         android:layout_marginBottom="16dp"
         android:textSize="16dp"
         android:hint="@string/longpress_text"/>
-
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
 </LinearLayout>

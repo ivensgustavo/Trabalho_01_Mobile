@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.annotation.MenuRes
+import androidx.core.view.get
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,43 +20,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val arrayAdapter: ArrayAdapter<*>
-        val items: Array<String> = arrayOf(
-            "ToggleButton",
-            "EditText",
-            "AutoComplete",
-            "Spinner",
-            "RadioButton",
-            "OptionMenu",
-            "DropDownMenu",
-            "CliqueLongo",
-            "ImagemDeFundo",
-            "Navegação",
-            "ActivitiesMultiplasTabs"
-        )
-
-        val listView: ListView = findViewById(R.id.listview)
-        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item, items)
-
-        listView.adapter = arrayAdapter
-        
-        listView.setOnItemClickListener { adapterView, view, i, l ->
-            when(i) {
-                0 -> Toast.makeText(this, "Ciclou na opção 1", Toast.LENGTH_SHORT).show()
-                else -> Toast.makeText(this, "Ciclou na opção X", Toast.LENGTH_SHORT).show()
-            }
-        }
-
+        configureToggleButton()
         configureAutoCompleteText()
         configureSpinner()
+        configureRadioButtons()
         configureDropDownMenu()
         configurePopUpMenu()
         configureLongPress()
         configureBtnShowSreenWithBackgroundImage()
         configureBtnShowSreenWithTabs()
         configureBtnShowScreenWithGrid()
+        configureBtnShowScreenWithListView()
         configureBtnsAudio()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -73,6 +49,18 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun configureToggleButton() {
+        val toggleButton: ToggleButton = findViewById(R.id.togglebutton)
+
+        toggleButton.setOnClickListener {
+            showToastMessage("Toggle button " + toggleButton.text)
+        }
+    }
+
     private fun configureAutoCompleteText() {
         val autoCompleteText: AutoCompleteTextView = findViewById(R.id.autoCompleteTextView)
         val teams: Array<String> = resources.getStringArray(R.array.teams)
@@ -85,6 +73,26 @@ class MainActivity : AppCompatActivity() {
         val teams: Array<String> = resources.getStringArray(R.array.teams)
         val spinnerAdapter: ArrayAdapter<*> = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, teams)
         spinner.adapter = spinnerAdapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, l: Long) {
+                showToastMessage("Selecionou "+teams[position]+ " na spinner list")
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
+    }
+
+    private fun configureRadioButtons() {
+        val radios: RadioGroup = findViewById(R.id.radioGroup)
+        var radioSelected: RadioButton
+        radios.setOnCheckedChangeListener { radioGroup, _ ->
+            radioSelected = findViewById(radioGroup.checkedRadioButtonId)
+            showToastMessage("Selecionou " + radioSelected.text.toString() + " no radio group")
+        }
     }
 
     private fun configureDropDownMenu() {
@@ -92,6 +100,10 @@ class MainActivity : AppCompatActivity() {
         val teams: Array<String> = resources.getStringArray(R.array.teams)
         val dropdownAdapter: ArrayAdapter<*> = ArrayAdapter(this, R.layout.dropdown_menu_item, teams)
         autocompleteDropDownMenu.setAdapter(dropdownAdapter)
+        
+        autocompleteDropDownMenu.setOnItemClickListener { _, _, pos, _ ->
+            showToastMessage("Selecionou " + teams[pos] + " no dropdow menu")
+        }
     }
 
     private fun configurePopUpMenu() {
@@ -106,7 +118,7 @@ class MainActivity : AppCompatActivity() {
         popupmenu.menuInflater.inflate(menuLayout, popupmenu.menu)
 
         popupmenu.setOnMenuItemClickListener { menuItem ->
-            Toast.makeText(this, "Você clicou em " + menuItem.title, Toast.LENGTH_SHORT).show()
+            showToastMessage("Você clicou em " + menuItem.title + "no popup menu")
             true
         }
 
@@ -116,14 +128,14 @@ class MainActivity : AppCompatActivity() {
     private fun configureLongPress() {
         val longPressTextView: TextView = findViewById(R.id.longpressView)
         longPressTextView.setOnLongClickListener {
-            Toast.makeText(this, "TextView foi pressionado longamente", Toast.LENGTH_SHORT).show()
+            showToastMessage("Text view foi pressionada longamente")
             true
         }
     }
 
     private fun configureBtnShowSreenWithBackgroundImage() {
         val btnShowScreeWithBackgroundImage: Button = findViewById(R.id.btn_showScreenWithBackgroundImage)
-        btnShowScreeWithBackgroundImage.setOnClickListener { view: View ->
+        btnShowScreeWithBackgroundImage.setOnClickListener {
             val screnWithBackgroundImage = Intent(this,  ScreenWithBackgroundImage::class.java)
             startActivity(screnWithBackgroundImage)
         }
@@ -131,7 +143,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun configureBtnShowSreenWithTabs() {
         val btnShowScreeWithTabs: Button = findViewById(R.id.btn_showScreenWithTabs)
-        btnShowScreeWithTabs.setOnClickListener { view: View ->
+        btnShowScreeWithTabs.setOnClickListener {
             val screnWithBackgroundImage = Intent(this,  ScreenWithTabs::class.java)
             startActivity(screnWithBackgroundImage)
         }
@@ -139,9 +151,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun configureBtnShowScreenWithGrid() {
         val btnShowScreenWithGrid: Button = findViewById(R.id.btn_showScreenWithGrid)
-        btnShowScreenWithGrid.setOnClickListener { view: View ->
+        btnShowScreenWithGrid.setOnClickListener {
             val screenWithGrid = Intent(this, ScreenWithGrid::class.java)
             startActivity(screenWithGrid)
+        }
+    }
+
+    private fun configureBtnShowScreenWithListView() {
+        val btnShowScreenWithListView: Button = findViewById(R.id.btn_showScreenListView)
+        btnShowScreenWithListView.setOnClickListener {
+            val screenWithListView = Intent(this, ScreenWithListView::class.java)
+            startActivity(screenWithListView)
         }
     }
 
